@@ -71,7 +71,7 @@ async function installCcacheMac() : Promise<void> {
 
 async function installCcacheLinux() : Promise<void> {
   if (await io.which("apt-get")) {
-    await execBashSudo("apt-get install -y ccache");
+    await execBashSudo("apt-get update && apt-get install -y ccache");
     return;
   } else if (await io.which("apk")) {
     await execBash("apk add ccache");
